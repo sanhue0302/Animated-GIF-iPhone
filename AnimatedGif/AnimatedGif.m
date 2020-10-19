@@ -277,6 +277,8 @@ static CGContextRef CreateARGBBitmapContext(CGSize size)
         opQueue = [[NSOperationQueue alloc] init];
         opQueue.maxConcurrentOperationCount = 1;
     }
+	
+    [opQueue setSuspended:NO];
     [opQueue addOperation:[[NSInvocationOperation alloc] initWithTarget:self selector:@selector(decodeGIF:) object:gifData]];
     
 }
